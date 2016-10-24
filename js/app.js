@@ -24,14 +24,14 @@ app.config(function($routeProvider){
 });
 
 app.controller('loginCtrl',['$scope','$location','$http',function($scope,$location,$http){
-  $scope.login=function(){
+  $scope.login = function(){
     var request = $http({
       method: "POST",
       url: URL+"login",
       data: {email: $scope.email, password: $scope.password}
     });
     request.success(function(data){
-      var response= angular.fromJson(data);
+      var response = angular.fromJson(data);
       if(response["error"]){
         $scope.validationMessage = response["message"][0];
       }
